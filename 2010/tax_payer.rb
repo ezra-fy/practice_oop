@@ -1,6 +1,6 @@
 require_relative 'tax_calculator'
 
-def TaxPayer
+class TaxPayer
   attr_accessor :name, :yearly_salary, :tax_credit
 
   def initialize(name, yearly_salary, tax_credit)
@@ -10,10 +10,10 @@ def TaxPayer
   end
 
   def calculate_total_tax_due
-    new TaxCalculator(@yearly_salary, @tax_credit).calculate_tax_due
+    TaxCalculator.new(@yearly_salary, @tax_credit).calculate_tax_due
   end
 
-  def to_string
-    @name + " " + self.calculate_total_tax_due
+  def to_s
+    @name + " " + self.calculate_total_tax_due.to_s
   end
 end

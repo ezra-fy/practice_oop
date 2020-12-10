@@ -1,4 +1,4 @@
-def TaxCalculator
+class TaxCalculator
   def initialize(yearly_salary, tax_credit)
     @yearly_salary = yearly_salary.to_f
     @tax_credit = tax_credit.to_f
@@ -10,9 +10,9 @@ def TaxCalculator
   def calculate_tax_due
     tax_due = 0
     taxable_salary = @yearly_salary
-    if @yearly_salary > 34000
-      tax_due = (@yearly_salary - 34000) * @higher_rate
-      taxable_salary -= @yearly_salary
+    if @yearly_salary > @tax_threshold
+      tax_due = (@yearly_salary - @tax_threshold) * @higher_rate
+      taxable_salary = @tax_threshold
     end
     tax_due += (taxable_salary * @base_rate) - @tax_credit
   end
