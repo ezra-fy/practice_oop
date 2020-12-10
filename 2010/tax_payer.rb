@@ -14,6 +14,6 @@ def TaxPayer
   end
 
   def to_string
-    @name + " " + @yearly_salary.to_s + " " +@tax_credit.to_s
+    @name + " " + self.calculate_total_tax_due
   end
 end
